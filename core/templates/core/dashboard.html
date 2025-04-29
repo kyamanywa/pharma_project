@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - KPIM</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Dashboard</h1>
+
+    <h2 style="text-align:center;">Product Report</h2>
+    <table border="1" style="width:80%; margin:auto; text-align:center;">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Created By</th>
+            <th>Status</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.created_at }}</td>
+            <td>{% if product.created_by %}
+                {{ product.created_by.username }}
+            {% else %}
+                Unknown
+            {% endif %}
+            </td>
+            <td>{{ product.is_active|yesno:"Active,Inactive" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No products found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <footer style="margin-top: 50px; text-align: center; font-weight: bold; font-style: italic;">
+        A commitment to good health
+    </footer>
+</body>
+</html>

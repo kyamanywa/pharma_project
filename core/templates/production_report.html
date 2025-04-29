@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Production Report</title>
+</head>
+<body>
+    <h1>Manufacturing & Production Report</h1>
+
+    {% if productions %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Batch Number</th>
+                    <th>Product Name</th>
+                    <th>Production Date</th>
+                    <th>Quality Check Passed</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in productions %}
+                    <tr>
+                        <td>{{ item.batch_number }}</td>
+                        <td>{{ item.product_name }}</td>
+                        <td>{{ item.production_date }}</td>
+                        <td>{{ item.quality_check_passed }}</td>
+                        <td>{{ item.notes }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No production records found.</p>
+    {% endif %}
+</body>
+</html>

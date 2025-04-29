@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - KPIM</title>
+</head>
+<body>
+
+    <!-- System Title -->
+    <h1 style="text-align: center; font-weight: bold;">
+        KAMPALA PHARMACEUTICAL INDUSTRY MANAGEMENT SYSTEM (KPIM)
+    </h1>
+
+    <!-- Login Form -->
+    <h2 style="text-align: center;">Login</h2>
+    <form method="post" style="text-align: center;">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username"><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password"><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Footer -->
+    <footer style="margin-top: 50px; text-align: center; font-weight: bold; font-style: italic;">
+        A commitment to good health
+    </footer>
+
+</body>
+</html>
